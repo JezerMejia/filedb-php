@@ -22,7 +22,7 @@ function list_files(string $path): string {
     http_response_code(400);
     exit();
   }
-  $files .= "}]";
+  $files .= "]}";
 
   return $files;
 }
