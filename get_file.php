@@ -11,7 +11,8 @@ function list_files(string $path): string {
       }
       $file_path = "/$path/$entry";
       $isdir = is_dir(".$file_path") ? "true" : "false";
-      $file = "{ \"name\": \"$entry\", \"is_dir\": $isdir }";
+      $mime_type = mime_content_type(".$file_path");
+      $file = "{ \"name\": \"$entry\", \"path\": \"$pretty_path$entry\", \"mime\": \"$mime_type\", \"is_dir\": $isdir }";
 
       $files .= "$file,";
     }
